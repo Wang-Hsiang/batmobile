@@ -1,8 +1,0 @@
-1.6個組件
-2.Chat:整個聊天室的容器，Header、List、Input便是放在此組件中。
-  Header:標頭，用於存放bootstrap、聊天室名稱及拍攝功能icon。
-  List:介於Header和Inputer之間，是myMessage、otherMessage的容器也是顯示歷史訊息的位置。
-  myMessage:顯示當前帳戶發送過的訊息，此元分別管理是否已讀、訊息、大頭照。
-  otherMessage:顯示其他帳戶發送過的訊息，此元件除了管理對方是否正在輸入外其餘結構跟myMessage一樣。
-  Input:用戶輸入內容的組件。
-3.每筆存在伺服器的訊息資料都有2個屬性readBy、text，readBy是個陣列用來紀錄誰讀過訊息了，父元件Chat會將readBy作為屬性傳遞給myMessage這個子元件，而myMessage內部會判定readBy的長度是否大於零，大於就顯示'已讀readBy.length'，例如:已讀2。而父元件Chat會定義一函式Active和變數isInput，Active用來更新isInput的狀態，而Active會做為一屬性傳遞給子元件Input，Active的觸發條件為onFuse(true)和onBlur(false)，Chat會根據isInput的正負值來決定要不要將'對方正在輸入中'傳給otherMessage子元件。
